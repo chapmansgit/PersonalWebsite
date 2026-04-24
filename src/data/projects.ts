@@ -9,12 +9,24 @@ export type Project = {
   description: string;
   sections: ProjectSection[];
   tags: string[];
-  githubUrl?: string;
-  liveUrl?: string;
   year: number;
 };
 
 export const projects: Project[] = [
+  {
+    slug: "polymarket-pitch-deck",
+    title: "Polymarket Market Operations Pitch",
+    description:
+      "Dispute analysis pipeline across 906 markets, three launch-ready market proposals, and a 23-creator golf vertical pitch with Parti.com distribution alignment.",
+    sections: [
+      {
+        heading: "overview",
+        body: "Built independently as research for a Market Operations Analyst application. Pulled all 906 disputed markets from the Polymarket Gamma API, classified each dispute reason via Claude API, extracted language patterns into a library, and drafted three dispute-proof market proposals directly against the failure modes found in the data.",
+      },
+    ],
+    tags: ["Python", "Claude API", "Gamma API", "Market Design", "Data Pipeline", "Notion"],
+    year: 2026,
+  },
   {
     slug: "skill-graph",
     title: "Skill Graph",

@@ -4,7 +4,7 @@ import Link from "next/link";
 import dynamic from "next/dynamic";
 import { useState, useEffect } from "react";
 import { companies } from "@/data/companies";
-import { MY_SERIES, axisAngle } from "@/components/SkillRadar";
+import { MY_SERIES } from "@/components/SkillRadar";
 import type { AnalysisResult, RequirementMatch } from "@/app/api/analyze-job/route";
 import type { FetchedJob } from "@/app/api/jobs/route";
 
@@ -93,15 +93,7 @@ export default function SkillGraph() {
     }
   }
 
-  const matchPct = result
-    ? (result.weightedMatchPct ?? Math.round(
-        (AXES.reduce((sum, axis, i) => {
-          const mine   = Math.max(MY_SERIES[0].values[i], MY_SERIES[1].values[i]);
-          const needed = result.scores[axis] ?? 0;
-          return sum + (needed === 0 ? 10 : Math.min(mine / needed, 1) * 10);
-        }, 0) / (AXES.length * 10)) * 100
-      ))
-    : null;
+  const matchPct = result ? result.weightedMatchPct : null;
 
   return (
     <div style={{ background: "#ffffff", minHeight: "100vh", fontFamily: "var(--font-roboto-mono), monospace", fontSize: "14px", color: "#100F0F" }}>
@@ -345,4 +337,3 @@ const btnStyle = (active: boolean): React.CSSProperties => ({
 const matchColor = (pct: number) =>
   pct >= 80 ? "#2a9d6e" : pct >= 60 ? "#e07b39" : "#c0392b";
 
-export { axisAngle };

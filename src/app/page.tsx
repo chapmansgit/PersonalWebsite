@@ -74,6 +74,11 @@ export default function Home() {
           <div className="smca-label">things i&apos;ve built</div>
           <ul className="smca-ul">
             <li>
+              a{" "}
+              <Link href="/projects/polymarket-pitch-deck" className="smca-a">polymarket pitch</Link>
+              {" "}built from 906 disputed markets, three proposals, and a creator vertical
+            </li>
+            <li>
               an{" "}
               <Link href="/projects/4d-ai-fluency-lab" className="smca-a">mcp server</Link>
               {" "}that scores how well people use AI

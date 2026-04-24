@@ -26,8 +26,17 @@ export default function ProjectBanner({ projects }: { projects: Project[] }) {
       animRef.current = requestAnimationFrame(tick);
     };
 
-    animRef.current = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(animRef.current);
+    const start = () => { animRef.current = requestAnimationFrame(tick); };
+    const stop  = () => cancelAnimationFrame(animRef.current);
+
+    const handleVisibility = () => { if (document.hidden) stop(); else start(); };
+    document.addEventListener('visibilitychange', handleVisibility);
+    if (!document.hidden) start();
+
+    return () => {
+      stop();
+      document.removeEventListener('visibilitychange', handleVisibility);
+    };
   }, []);
 
   return (

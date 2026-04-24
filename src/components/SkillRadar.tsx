@@ -127,23 +127,31 @@ export default function SkillRadar({ jobScores }: Props) {
     scene.add(buildRadarMesh(MY_SERIES[0].values, -1.0, MY_SERIES[0].color));
     scene.add(buildRadarMesh(MY_SERIES[1].values,  0.0, MY_SERIES[1].color));
 
+    let frame: number | undefined;
+    const requestRender = () => {
+      if (frame !== undefined) return;
+      frame = requestAnimationFrame(() => {
+        frame = undefined;
+        controls.update();
+        renderer.render(scene, camera);
+      });
+    };
+
     const ro = new ResizeObserver(() => {
       renderer.setSize(el.clientWidth, el.clientHeight);
       camera.aspect = el.clientWidth / el.clientHeight;
       camera.updateProjectionMatrix();
+      requestRender();
     });
     ro.observe(el);
 
-    let frame: number;
-    const animate = () => {
-      frame = requestAnimationFrame(animate);
-      controls.update();
-      renderer.render(scene, camera);
-    };
-    animate();
+    controls.addEventListener('change', requestRender);
+    requestRender();
 
     return () => {
-      cancelAnimationFrame(frame);
+      if (frame !== undefined) cancelAnimationFrame(frame);
+      controls.removeEventListener('change', requestRender);
+      controls.dispose();
       ro.disconnect();
       renderer.dispose();
       if (el.contains(renderer.domElement)) el.removeChild(renderer.domElement);
