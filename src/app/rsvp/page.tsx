@@ -237,7 +237,7 @@ export default function RSVPPage() {
         {/* Word display */}
         <div style={{ display: "flex", alignItems: "baseline", fontSize: "44px", letterSpacing: "0.02em", userSelect: "none" }}>
           <span style={{ display: "inline-block", width: "160px", textAlign: "right", color: "#100F0F" }}>{left}</span>
-          <span style={{ color: "#e11d48", minWidth: "0.6ch", textAlign: "center" }}>{pivot}</span>
+          <span style={{ color: "#1F51FF", minWidth: "0.6ch", textAlign: "center" }}>{pivot}</span>
           <span style={{ display: "inline-block", width: "360px", textAlign: "left", color: "#100F0F" }}>{right}</span>
         </div>
 
