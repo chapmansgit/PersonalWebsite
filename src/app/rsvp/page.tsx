@@ -5,9 +5,7 @@ import Link from "next/link";
 
 const RESUME_TEXT = `I'm Christian a data scientist and full-stack builder based in Charlotte, NC. My background spans information systems, cybersecurity, and psychology research. Where I built a foundation in systems thinking, behavioral analysis, and human-centered research methods. I attended UNC Charlotte for the Data Science program and hold multiple Anthropic certifications, with deep hands-on experience in Python, SQL, and TypeScript. My work spans the full data lifecycle: from architecting relational databases in Oracle LiveSQL and conducting large-scale regression analyses across 62,000 data points, to building production-grade AI tools and MCP servers. I've applied these skills across domains ranging from labor economics and public health to prediction markets and AI literacy.`;
 const SPEEDS = [
-  { label: "slow",   wpm: 200 },
-  { label: "normal", wpm: 300 },
-  { label: "fast",   wpm: 450 },
+  { label: "235 wpm", wpm: 235 },
 ];
 
 // A minor pentatonic: A C D E G
@@ -111,7 +109,7 @@ export default function RSVPPage() {
   const words = RESUME_TEXT.split(/\s+/).filter(Boolean);
   const [index,      setIndex]      = useState(0);
   const [running,    setRunning]    = useState(false);
-  const [speedIndex, setSpeedIndex] = useState(1);
+  const [speedIndex] = useState(0);
   const [musicOn,    setMusicOn]    = useState(false);
 
   const intervalRef  = useRef<ReturnType<typeof setInterval> | null>(null);
@@ -245,28 +243,7 @@ export default function RSVPPage() {
           {statusText}
         </div>
 
-        {/* Speed selector */}
-        <div style={{ display: "flex", gap: "8px" }} onClick={e => e.stopPropagation()}>
-          {SPEEDS.map((s, i) => (
-            <button
-              key={s.label}
-              onClick={() => setSpeedIndex(i)}
-              style={{
-                fontSize: "10px",
-                padding: "4px 12px",
-                border: "1px solid",
-                borderColor: i === speedIndex ? "#100F0F" : "#e2e0d5",
-                background:  i === speedIndex ? "#100F0F" : "transparent",
-                color:       i === speedIndex ? "#ffffff" : "#64748B",
-                cursor: "pointer",
-                fontFamily: "Verdana, sans-serif",
-                borderRadius: "2px",
-              }}
-            >
-              {s.label} · {s.wpm} wpm
-            </button>
-          ))}
-        </div>
+        <div style={{ fontSize: "10px", color: "#94A3B8", letterSpacing: "0.05em" }}>235 wpm</div>
 
         {/* Word count */}
         <div style={{ fontSize: "10px", color: "#cbd5e1", letterSpacing: "0.05em" }}>
