@@ -11,17 +11,17 @@ export const metadata = {
 
 // ─── Pipeline Diagram ────────────────────────────────────────────────────────
 function PipelineDiagram() {
-  const W = 740, H = 200;
+  const W = 860, H = 200;
 
   type NodeStyle = "source" | "process" | "storage" | "output";
   const nodes: { label: string; sub?: string; x: number; y: number; w: number; h: number; style: NodeStyle }[] = [
-    { label: "gamma api",            sub: "polymarket",          x: 10,  y: 76, w: 118, h: 48, style: "source"  },
-    { label: "906 disputed",         sub: "markets pulled",      x: 172, y: 76, w: 118, h: 48, style: "process" },
-    { label: "python pipeline",      sub: "fetch · classify · analyze", x: 334, y: 76, w: 130, h: 48, style: "process" },
-    { label: "pattern library",      sub: "by dispute reason",   x: 514, y: 76, w: 118, h: 48, style: "storage" },
-    { label: "market proposals",     sub: "3 ready to launch",   x: 694, y: 20, w: 118, h: 38, style: "output"  },
-    { label: "risk checklist",       sub: "pre-submission",      x: 694, y: 70, w: 118, h: 38, style: "output"  },
-    { label: "draft_ruleset.py",     sub: "interactive tool",    x: 694, y: 120, w: 118, h: 38, style: "output" },
+    { label: "gamma api",            sub: "polymarket",                x: 10,  y: 76, w: 118, h: 48, style: "source"  },
+    { label: "906 disputed",         sub: "markets pulled",            x: 172, y: 76, w: 118, h: 48, style: "process" },
+    { label: "python pipeline",      sub: "fetch · classify · analyze",x: 334, y: 76, w: 130, h: 48, style: "process" },
+    { label: "pattern library",      sub: "by dispute reason",         x: 514, y: 76, w: 118, h: 48, style: "storage" },
+    { label: "market proposals",     sub: "3 ready to launch",         x: 700, y: 20, w: 148, h: 38, style: "output"  },
+    { label: "risk checklist",       sub: "pre-submission",            x: 700, y: 70, w: 148, h: 38, style: "output"  },
+    { label: "draft_ruleset.py",     sub: "interactive tool",          x: 700, y: 120, w: 148, h: 38, style: "output" },
   ];
 
   const colors: Record<NodeStyle, { bg: string; border: string; text: string; sub: string }> = {
@@ -39,7 +39,7 @@ function PipelineDiagram() {
   const fanTargets = [4, 5, 6];
 
   return (
-    <svg viewBox={`0 0 ${W} ${H}`} className="w-full h-auto" aria-label="Dispute analysis pipeline">
+    <svg viewBox={`0 0 ${W} ${H}`} className="w-full h-auto" style={{ minWidth: 0 }} aria-label="Dispute analysis pipeline">
       <defs>
         <marker id="pmArrowBlue" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto">
           <path d="M0,0 L0,6 L7,3 z" fill="#475569" />
@@ -53,7 +53,7 @@ function PipelineDiagram() {
       <text x={231} y={14} textAnchor="middle" fontSize={8} fill="#94A3B8" fontFamily="Roboto Mono, monospace" fontWeight="700" letterSpacing="0.08em">PULL</text>
       <text x={399} y={14} textAnchor="middle" fontSize={8} fill="#94A3B8" fontFamily="Roboto Mono, monospace" fontWeight="700" letterSpacing="0.08em">PROCESS</text>
       <text x={573} y={14} textAnchor="middle" fontSize={8} fill="#94A3B8" fontFamily="Roboto Mono, monospace" fontWeight="700" letterSpacing="0.08em">STORAGE</text>
-      <text x={753} y={14} textAnchor="middle" fontSize={8} fill="#94A3B8" fontFamily="Roboto Mono, monospace" fontWeight="700" letterSpacing="0.08em">OUTPUTS</text>
+      <text x={774} y={14} textAnchor="middle" fontSize={8} fill="#94A3B8" fontFamily="Roboto Mono, monospace" fontWeight="700" letterSpacing="0.08em">OUTPUTS</text>
 
       {pipes.map(([a, b]) => {
         const na = get(a), nb = get(b);
@@ -109,67 +109,54 @@ function PipelineDiagram() {
 
 // ─── Dispute Breakdown Bar ────────────────────────────────────────────────────
 function DisputeBar() {
-  const BAR_X = 20, BAR_Y = 38, BAR_H = 30, BAR_W = 500;
+  const BAR_X = 0, BAR_Y = 0, BAR_H = 36, BAR_W = 540;
 
   const segments = [
-    { label: "ambiguous rules", pct: 63, count: 571, bg: "#100F0F", text: "white" },
-    { label: "too early",       pct: 19, count: 171, bg: "#475569", text: "white" },
-    { label: "wrong source",    pct: 11, count: 103, bg: "#94a3b8", text: "#100F0F" },
-    { label: "factual error",   pct:  7, count:  60, bg: "#d1cfc4", text: "#100F0F" },
+    { label: "ambiguous rules", short: "63%", pct: 63, bg: "#100F0F", text: "white"    },
+    { label: "too early",       short: "19%", pct: 19, bg: "#475569", text: "white"    },
+    { label: "wrong source",    short: "11%", pct: 11, bg: "#94a3b8", text: "#100F0F"  },
+    { label: "factual error",   short: "7%",  pct:  7, bg: "#d1cfc4", text: "#100F0F"  },
   ];
 
   let offsetX = BAR_X;
   return (
-    <svg viewBox="0 0 540 110" className="w-full h-auto" aria-label="Dispute reason breakdown">
-      {segments.map((s, i) => {
-        const w = (s.pct / 100) * BAR_W;
-        const x = offsetX;
-        offsetX += w;
-        const isFirst = i === 0, isLast = i === segments.length - 1;
-        return (
-          <g key={s.label}>
-            <rect x={x} y={BAR_Y} width={w} height={BAR_H}
-              fill={s.bg}
-              rx={isFirst ? 6 : 0}
-            />
-            {isLast && <rect x={x + w - 6} y={BAR_Y} width={6} height={BAR_H} rx={3} fill={s.bg} />}
-            {s.pct >= 15 && (
-              <text x={x + w / 2} y={BAR_Y + BAR_H / 2 + 4}
-                textAnchor="middle" fontSize={9.5} fontWeight="700"
-                fill={s.text} fontFamily="Roboto Mono, monospace">
-                {s.pct}%
-              </text>
-            )}
-          </g>
-        );
-      })}
-      {/* Dividers */}
-      {[63, 82, 93].map((pct) => {
-        const x = BAR_X + (pct / 100) * BAR_W;
-        return <line key={pct} x1={x} y1={BAR_Y} x2={x} y2={BAR_Y + BAR_H} stroke="white" strokeWidth="1" />;
-      })}
-      {/* Labels below */}
-      {(() => {
-        let ox = BAR_X;
-        return segments.map((s) => {
+    <div>
+      <svg viewBox={`0 0 ${BAR_W} ${BAR_H}`} className="w-full h-auto" aria-label="Dispute reason breakdown">
+        {segments.map((s, i) => {
           const w = (s.pct / 100) * BAR_W;
-          const labelX = ox + w / 2;
-          ox += w;
+          const x = offsetX;
+          offsetX += w;
+          const isFirst = i === 0, isLast = i === segments.length - 1;
           return (
-            <g key={`lbl-${s.label}`}>
-              <text x={labelX} y={BAR_Y + BAR_H + 14} textAnchor="middle"
-                fontSize={8} fill="#100F0F" fontFamily="Roboto Mono, monospace" fontWeight="600">
-                {s.label}
-              </text>
-              <text x={labelX} y={BAR_Y + BAR_H + 26} textAnchor="middle"
-                fontSize={7.5} fill="#64748B" fontFamily="Roboto Mono, monospace">
-                {s.count} disputes
+            <g key={s.label}>
+              <rect x={x} y={BAR_Y} width={w} height={BAR_H}
+                fill={s.bg}
+                rx={isFirst ? 6 : 0}
+              />
+              {isFirst && <rect x={x + w - 6} y={BAR_Y} width={6} height={BAR_H} fill={s.bg} />}
+              {isLast && <rect x={x} y={BAR_Y} width={6} height={BAR_H} fill={s.bg} />}
+              <text x={x + w / 2} y={BAR_Y + BAR_H / 2 + 4}
+                textAnchor="middle" fontSize={w > 60 ? 9.5 : 7.5} fontWeight="700"
+                fill={s.text} fontFamily="Roboto Mono, monospace">
+                {s.short}
               </text>
             </g>
           );
-        });
-      })()}
-    </svg>
+        })}
+        {[63, 82, 93].map((pct) => {
+          const x = BAR_X + (pct / 100) * BAR_W;
+          return <line key={pct} x1={x} y1={BAR_Y} x2={x} y2={BAR_Y + BAR_H} stroke="white" strokeWidth="1" />;
+        })}
+      </svg>
+      <div className="flex flex-wrap gap-x-4 gap-y-1 mt-3">
+        {segments.map((s) => (
+          <div key={s.label} className="flex items-center gap-1.5">
+            <div className="w-2 h-2 rounded-sm shrink-0" style={{ background: s.bg, border: s.bg === "#d1cfc4" ? "1px solid #b0ada3" : "none" }} />
+            <span className="text-xs font-mono" style={{ color: "#64748B" }}>{s.label}</span>
+          </div>
+        ))}
+      </div>
+    </div>
   );
 }
 
@@ -313,19 +300,6 @@ export default function PolymarketPage() {
           </tbody>
         </table>
       </div>
-
-      {/* Sankey */}
-      <section className="mb-12">
-        <h2 className="inline-block font-mono text-xs px-2.5 py-1 rounded border border-neutral-200 bg-neutral-100 text-neutral-700 mb-4">pipeline flow</h2>
-        <div className="rounded-xl overflow-hidden" style={{ border: "1px solid #d1cfc4" }}>
-          <iframe
-            src="/polymarket-sankey.html"
-            className="w-full"
-            style={{ height: "640px", border: "none" }}
-            title="Polymarket dispute pipeline Sankey chart"
-          />
-        </div>
-      </section>
 
       {/* Market Proposals */}
       <section className="mb-12">
