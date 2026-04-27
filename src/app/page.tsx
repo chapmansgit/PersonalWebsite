@@ -22,7 +22,7 @@ export default function Home() {
         .smca-h1 { font-family: var(--font-merriweather), serif; font-size: 24px; font-weight: 900; line-height: 1.2; margin: 0.5em 0; color: #100F0F; }
         .smca-label { background-color: #f2f0e5; padding: 2px 6px; display: inline-block; margin: 0.75em 0 0.25em 0; }
         .smca-p { margin: 0.5em 0; }
-        .smca-a { color: #1F51FF; text-decoration: underline; padding: 0 2px; margin: 0 -2px; }
+        .smca-a { color: #100F0F; text-decoration: underline; padding: 0 2px; margin: 0 -2px; }
         .smca-a:hover { background-color: #ffd00066; }
         .smca-mark { background-color: #ffd00066; padding: 0 2px; }
         .smca-hr { border: none; border-top: 1px solid #f2f0e5; margin: 1.5em 0; }
