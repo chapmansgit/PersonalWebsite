@@ -47,13 +47,9 @@ export default function Home() {
             Hi, I&apos;m Christian. I build production tools, analyze data and like to use AI to help bring things to life.{" "}
             <Link href="/rsvp" className="smca-a">read my resume in 30 seconds →</Link>
           </p>
-          <p className="smca-p">
-            My background started in Information Systems Cyber Security and Information Assurance at UNC Greensboro, with additional coursework in psychology research covering behavioral analysis, experiments, surveys, and case studies. I built a foundation in both systems thinking and human behavior before switching to data science at UNC Charlotte.
-          </p>
-
           <div className="smca-label">education</div>
           <p className="smca-p">
-            B.S. in Data Science from UNC Charlotte. Started at UNC Greensboro in kinesiology and psychology research, then switched to data.
+            My background started in Information Systems Cyber Security and Information Assurance at UNC Greensboro, with additional coursework in psychology research covering behavioral analysis, experiments, surveys, and case studies. I built a foundation in both systems thinking and human behavior before switching to data science at UNC Charlotte.
           </p>
           <p className="smca-p">
             I hold several Anthropic certifications and build most of my production work with{" "}
@@ -62,12 +58,11 @@ export default function Home() {
 
           <div className="smca-label">contact</div>
           <p className="smca-p">
-            Open to data and technology roles in Charlotte.{" "}
+            <a href="https://github.com/chapmansgit" target="_blank" rel="noopener noreferrer" className="smca-a">GitHub</a>
+            {", "}
             <a href="https://www.linkedin.com/in/christianjchap/" target="_blank" rel="noopener noreferrer" className="smca-a">LinkedIn</a>
             {", "}
-            <a href="mailto:cchapm45@charlotte.edu" className="smca-a">email</a>
-            {", or "}
-            <a href="tel:7049981113" className="smca-a">(704) 998-1113</a>.
+            <a href="mailto:cchapm45@charlotte.edu" className="smca-a">email</a>.
           </p>
 
           <hr className="smca-hr" />
@@ -126,10 +121,6 @@ export default function Home() {
             ))}
           </ul>
 
-          <div className="smca-label">work</div>
-          <p className="smca-p">
-            Sales associate at Dick&apos;s Sporting Goods in Charlotte. I reorganized restocking routines to reduce floor downtime, mentor new team members through onboarding, and hit weekly sales targets through product knowledge, not scripts.
-          </p>
         </main>
       </div>
     </>
