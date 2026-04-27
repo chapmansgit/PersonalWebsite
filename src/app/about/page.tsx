@@ -13,7 +13,7 @@ export default function AboutPage() {
         <h1 className="text-2xl font-bold mb-6">About</h1>
         <div className="flex flex-col gap-4 text-neutral-900 leading-relaxed">
           <p>
-            I analyze data and build production tools with AI. Python and SQL for analysis, TypeScript when something needs to ship.
+            Hi, I'm Christian. I build production tools, analyze data and like to use AI to help bring things to life. 
           </p>
           <p>
             My background started in Information Systems Cyber Security and Information Assurance at UNC Greensboro, with additional coursework in psychology research covering behavioral analysis, experiments, surveys, and case studies. I built a foundation in both systems thinking and human behavior before switching to data science at UNC Charlotte.
