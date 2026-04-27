@@ -427,23 +427,40 @@ export default function PolymarketPage() {
         </div>
       </section>
 
-      {/* GitHub */}
+      {/* Links */}
       <section className="mb-12">
-        <h2 className="inline-block font-mono text-xs px-2.5 py-1 rounded border border-neutral-200 bg-neutral-100 text-neutral-700 mb-4">github</h2>
-        <div className="rounded-xl px-5 py-4 flex items-center justify-between" style={{ background: "#f9f8f3", border: "1px solid #d1cfc4" }}>
-          <div>
-            <p className="text-sm font-bold" style={{ color: "#100F0F" }}>chapmansgit/PolyMarket</p>
-            <p className="text-xs mt-0.5" style={{ color: "#64748B" }}>fetch_disputes.py · classify_disputes.py · analyze_rules.py · draft_ruleset.py · inspect_uma.py</p>
+        <h2 className="inline-block font-mono text-xs px-2.5 py-1 rounded border border-neutral-200 bg-neutral-100 text-neutral-700 mb-4">links</h2>
+        <div className="flex flex-col gap-3">
+          <div className="rounded-xl px-5 py-4 flex items-center justify-between" style={{ background: "#f9f8f3", border: "1px solid #d1cfc4" }}>
+            <div>
+              <p className="text-sm font-bold" style={{ color: "#100F0F" }}>Full Research — Notion</p>
+              <p className="text-xs mt-0.5" style={{ color: "#64748B" }}>pitch deck · creator roster · market proposals · portfolio · dispute pattern library</p>
+            </div>
+            <a
+              href="https://www.notion.so/ce9e2893e9bb823fa26001a2a5ea485e"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-xs font-mono px-3 py-1.5 rounded-lg font-bold shrink-0 ml-4"
+              style={{ background: "#100F0F", color: "white" }}
+            >
+              open →
+            </a>
           </div>
-          <a
-            href="https://github.com/chapmansgit/PolyMarket"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-xs font-mono px-3 py-1.5 rounded-lg font-bold shrink-0 ml-4"
-            style={{ background: "#100F0F", color: "white" }}
-          >
-            view repo →
-          </a>
+          <div className="rounded-xl px-5 py-4 flex items-center justify-between" style={{ background: "#f9f8f3", border: "1px solid #d1cfc4" }}>
+            <div>
+              <p className="text-sm font-bold" style={{ color: "#100F0F" }}>chapmansgit/PolyMarket</p>
+              <p className="text-xs mt-0.5" style={{ color: "#64748B" }}>fetch_disputes.py · classify_disputes.py · analyze_rules.py · draft_ruleset.py · inspect_uma.py</p>
+            </div>
+            <a
+              href="https://github.com/chapmansgit/PolyMarket"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-xs font-mono px-3 py-1.5 rounded-lg font-bold shrink-0 ml-4"
+              style={{ background: "#100F0F", color: "white" }}
+            >
+              view repo →
+            </a>
+          </div>
         </div>
       </section>
 
