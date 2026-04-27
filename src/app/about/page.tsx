@@ -13,10 +13,15 @@ export default function AboutPage() {
         <h1 className="text-2xl font-bold mb-6">About</h1>
         <div className="flex flex-col gap-4 text-neutral-900 leading-relaxed">
           <p>
-            I analyze data and build production tools with AI in Charlotte. Python and SQL
-            for analysis, TypeScript when something needs to ship. I came to data science
-            through research: kinesiology and psychology at UNC Greensboro, then switched
-            tracks to finish at UNC Charlotte. I build with AI rather than just use it.
+            I analyze data and build production tools with AI. Python and SQL for analysis,
+            TypeScript when something needs to ship.
+          </p>
+          <p>
+            My background started in Information Systems Cyber Security and Information
+            Assurance at UNC Greensboro, with additional coursework in psychology research
+            covering behavioral analysis, experiments, surveys, and case studies. I built a
+            foundation in both systems thinking and human behavior before switching to data
+            science at UNC Charlotte.
           </p>
         </div>
       </section>
@@ -42,7 +47,7 @@ export default function AboutPage() {
               <div>
                 <p className="font-semibold">University of North Carolina at Greensboro</p>
                 <p className="text-sm text-neutral-800">
-                  Kinesiology & Psychology Research, 25 credits completed
+                  Information Systems: Cyber Security & Information Assurance; Psychology Research
                 </p>
               </div>
             </div>
