@@ -46,7 +46,8 @@ export default function Home() {
 
           <div className="smca-label">about</div>
           <p className="smca-p">
-            I analyze data and build production tools with AI. Python and SQL for analysis, TypeScript when something needs to ship.
+            I analyze data and build production tools with AI. Python and SQL for analysis, TypeScript when something needs to ship.{" "}
+            <Link href="/rsvp" className="smca-a">read my resume in 45 seconds →</Link>
           </p>
           <p className="smca-p">
             My background started in Information Systems Cyber Security and Information Assurance at UNC Greensboro, with additional coursework in psychology research covering behavioral analysis, experiments, surveys, and case studies. I built a foundation in both systems thinking and human behavior before switching to data science at UNC Charlotte.
