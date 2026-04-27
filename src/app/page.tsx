@@ -44,7 +44,7 @@ export default function Home() {
         <main className="smca-main">
           <div className="smca-label">about</div>
           <p className="smca-p">
-            I analyze data and build production tools with AI. Python and SQL for analysis, TypeScript when something needs to ship.{" "}
+            Hi, I&apos;m Christian. I build production tools, analyze data and like to use AI to help bring things to life.{" "}
             <Link href="/rsvp" className="smca-a">read my resume in 30 seconds →</Link>
           </p>
           <p className="smca-p">
