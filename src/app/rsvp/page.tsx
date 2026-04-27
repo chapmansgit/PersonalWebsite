@@ -195,7 +195,7 @@ export default function RSVPPage() {
 
   return (
     <div
-      style={{ background: "#ffffff", minHeight: "100vh", fontFamily: "var(--font-roboto-mono), monospace", display: "flex", flexDirection: "column" }}
+      style={{ background: "#ffffff", minHeight: "100vh", fontFamily: "Verdana, sans-serif", display: "flex", flexDirection: "column" }}
       onClick={toggle}
     >
       {/* Header */}
@@ -213,7 +213,7 @@ export default function RSVPPage() {
               background: "none",
               border: "none",
               cursor: "pointer",
-              fontFamily: "var(--font-roboto-mono), monospace",
+              fontFamily: "Verdana, sans-serif",
               letterSpacing: "0.05em",
               padding: 0,
             }}
@@ -259,7 +259,7 @@ export default function RSVPPage() {
                 background:  i === speedIndex ? "#100F0F" : "transparent",
                 color:       i === speedIndex ? "#ffffff" : "#64748B",
                 cursor: "pointer",
-                fontFamily: "var(--font-roboto-mono), monospace",
+                fontFamily: "Verdana, sans-serif",
                 borderRadius: "2px",
               }}
             >
