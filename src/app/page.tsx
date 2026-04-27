@@ -46,8 +46,10 @@ export default function Home() {
 
           <div className="smca-label">about</div>
           <p className="smca-p">
-            Some people call me <span className="smca-mark">chap</span>. I analyze data and build production tools with AI: Python and SQL for analysis, TypeScript when something needs to ship.{" "}
-            <Link href="/rsvp" className="smca-a">read my resume in 45 seconds →</Link>
+            I analyze data and build production tools with AI. Python and SQL for analysis, TypeScript when something needs to ship.
+          </p>
+          <p className="smca-p">
+            My background started in Information Systems Cyber Security and Information Assurance at UNC Greensboro, with additional coursework in psychology research covering behavioral analysis, experiments, surveys, and case studies. I built a foundation in both systems thinking and human behavior before switching to data science at UNC Charlotte.
           </p>
 
           <div className="smca-label">education</div>
