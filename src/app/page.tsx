@@ -49,7 +49,7 @@ export default function Home() {
           </p>
           <div className="smca-label">education</div>
           <p className="smca-p">
-            Bachelor of Science Data Science from the University of North Carolina at Charlotte.
+            Bachelor of Science In Data Science From The University Of North Carolina At Charlotte.
           </p>
           <p className="smca-p">
             My background started in Information Systems Cyber Security and Information Assurance at UNC Greensboro, with additional coursework in psychology research covering behavioral analysis, experiments, surveys, and case studies. I built a foundation in both systems thinking and human behavior before switching to data science at UNC Charlotte.
