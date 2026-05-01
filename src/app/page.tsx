@@ -111,13 +111,8 @@ export default function Home() {
             </li>
             <li>
               a{" "}
-              <Link href="/projects/skill-graph" className="smca-a">skill graph</Link>
-              {" "}with live job match analysis against Charlotte companies
-            </li>
-            <li>
-              this{" "}
-              <Link href="/" className="smca-a">portfolio</Link>
-              {", "}built with Claude Code
+              <Link href="/projects/skill-graph" className="smca-a">skill matrix</Link>
+              {" "}mapping skills across every project
             </li>
           </ul>
 
