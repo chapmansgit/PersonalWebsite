@@ -66,10 +66,6 @@ export default function Home() {
           <p className="smca-p">
             My background started in Information Systems Cyber Security and Information Assurance at UNC Greensboro, with additional coursework in psychology research covering behavioral analysis, experiments, surveys, and case studies. I built a foundation in both systems thinking and human behavior before switching to data science at UNC Charlotte.
           </p>
-          <p className="smca-p">
-            I hold several Anthropic certifications and build most of my production work with{" "}
-            <a href="https://claude.ai" target="_blank" rel="noopener noreferrer" className="smca-a">Claude</a>.
-          </p>
 
           <div className="smca-label">contact</div>
           <p className="smca-p">
