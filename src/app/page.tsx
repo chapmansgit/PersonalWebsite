@@ -1,13 +1,25 @@
 import Link from "next/link";
 import { projects } from "@/data/projects";
 
-const certs = [
-  { title: "claude code in action",              url: "https://verify.skilljar.com/c/pboxq7vbe6o5" },
-  { title: "claude with the anthropic api",      url: "https://verify.skilljar.com/c/yutwdn36ibcz" },
-  { title: "claude 101",                         url: "https://verify.skilljar.com/c/8m9o35r7yoh9" },
-  { title: "ai fluency: framework & foundations",url: "https://verify.skilljar.com/c/2je2a4z4pjuk" },
-  { title: "ai fluency for students",            url: "https://verify.skilljar.com/c/qbjimm37u3kb" },
-  { title: "teaching the ai fluency framework",  url: null },
+type Cert =
+  | { title: string; url: string | null; parts?: never }
+  | { parts: { label: string; url: string }[]; title?: never; url?: never };
+
+const certs: Cert[] = [
+  { parts: [
+      { label: "claude 101", url: "https://verify.skilljar.com/c/8m9o35r7yoh9" },
+      { label: "claude code in action", url: "https://verify.skilljar.com/c/pboxq7vbe6o5" },
+    ]
+  },
+  { title: "anthropic api",                      url: "https://verify.skilljar.com/c/yutwdn36ibcz" },
+  { title: "claude with google cloud's vertex ai", url: "https://verify.skilljar.com/c/z7fja9pgy2mp" },
+  { title: "agent skills",                       url: "https://verify.skilljar.com/c/knhc2mset2iw" },
+  { parts: [
+      { label: "ai fluency: framework & foundations", url: "https://verify.skilljar.com/c/2je2a4z4pjuk" },
+      { label: "for students",                        url: "https://verify.skilljar.com/c/qbjimm37u3kb" },
+      { label: "teaching the ai fluency framework",   url: "https://verify.skilljar.com/c/famgy2fqh8x9" },
+    ]
+  },
 ];
 
 export default function Home() {
@@ -111,9 +123,16 @@ export default function Home() {
 
           <div className="smca-label">certifications</div>
           <ul className="smca-ul">
-            {certs.map((c) => (
-              <li key={c.title}>
-                {c.url ? (
+            {certs.map((c, i) => (
+              <li key={i}>
+                {c.parts ? (
+                  c.parts.map((p, j) => (
+                    <span key={p.label}>
+                      {j > 0 && " · "}
+                      <a href={p.url} target="_blank" rel="noopener noreferrer" className="smca-a">{p.label}</a>
+                    </span>
+                  ))
+                ) : c.url ? (
                   <a href={c.url} target="_blank" rel="noopener noreferrer" className="smca-a">
                     {c.title}
                   </a>
